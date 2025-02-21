@@ -68,6 +68,8 @@ echo 'setopt AUTO_CD' >> /home/$USER_NAME/.zshrc
 # Add conda initialization to zshrc
 echo 'export PATH="/home/'"$USER_NAME"'/miniforge3/bin:$PATH"' >> /home/$USER_NAME/.zshrc
 echo 'eval "$(/home/'"$USER_NAME"'/miniforge3/bin/conda shell.zsh hook)"' >> /home/$USER_NAME/.zshrc
+#echo 'source /home/'"$USER_NAME"'/miniforge3/etc/profile.d/conda.sh' >> /home/$USER_NAME/.zshrc
+#echo 'source /home/'"$USER_NAME"'/miniforge3/etc/profile.d/mamba.sh' >> /home/$USER_NAME/.zshrc
 
 # Add Docker permissions for the primary user
 usermod -aG docker "$USER_NAME"

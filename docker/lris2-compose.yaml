@@ -1,8 +1,8 @@
-version: "3.8"
-
 services:
-  dev_container:
-    build: .
+  lris2_container:
+    build:
+      context: .
+      dockerfile: lris2.dockerfile
     volumes:
       - /home/jebbailey/src/astrocontrol/lris2-csu/lris2-csu:/opt/app
       - /home/jebbailey/src/astrocontrol/lris2-csu/scripts:/opt/scripts
