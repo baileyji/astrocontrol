@@ -1,0 +1,39 @@
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environments
+venv/
+.env/
+
+# Ignore Conda environments
+*.conda
+*.lock
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.tmp
+
+# Ignore Docker build artifacts
+dist/
+build/
+*.tar
+docker-compose.override.yml
+
+# Ignore SSH keys and sensitive configs
+*.pem
+*.key
+config.yaml
+
+# Ignore VSCode and PyCharm settings
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
