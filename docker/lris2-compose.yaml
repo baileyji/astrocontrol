@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  dev_container:
+    build: .
+    volumes:
+      - /home/jebbailey/src/astrocontrol/lris2-csu/lris2-csu:/opt/app
+      - /home/jebbailey/src/astrocontrol/lris2-csu/scripts:/opt/scripts
+    network_mode: "host"
+    privileged: true  # Grants full root access to the container
+    cap_add:
+      - NET_ADMIN  # Allows network interface configuration
+    restart: unless-stopped

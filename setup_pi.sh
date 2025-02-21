@@ -33,10 +33,10 @@ apt install -y \
     fonts-powerline \
     unzip
 
-# Create user if it does not exist
-if ! id "$USER_NAME" &>/dev/null; then
-    useradd -m -s /bin/zsh "$USER_NAME"
-fi
+## Create user if it does not exist
+#if ! id "$USER_NAME" &>/dev/null; then
+#    useradd -m -s /bin/zsh "$USER_NAME"
+#fi
 
 # Install and set up Miniforge3 for the primary user
 sudo -u "$USER_NAME" bash -c "curl -L -o Miniforge3.sh https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh && \
@@ -66,14 +66,14 @@ sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting
 echo 'setopt AUTO_CD' >> /home/$USER_NAME/.zshrc
 
 # Add conda initialization to zshrc
-echo 'export PATH="/home/$USER_NAME/miniforge3/bin:$PATH"' >> /home/$USER_NAME/.zshrc
-echo 'eval "$(/home/$USER_NAME/miniforge3/bin/conda shell.zsh hook)"' >> /home/$USER_NAME/.zshrc
+echo 'export PATH="/home/'"$USER_NAME"'/miniforge3/bin:$PATH"' >> /home/$USER_NAME/.zshrc
+echo 'eval "$(/home/'"$USER_NAME"'/miniforge3/bin/conda shell.zsh hook)"' >> /home/$USER_NAME/.zshrc
 
 # Add Docker permissions for the primary user
 usermod -aG docker "$USER_NAME"
 
 # Enable and start Docker
-tsystemctl enable --now docker
+systemctl enable --now docker
 
 # Set up SSH keys (ensure SSH is installed and running)
 #mkdir -p /home/$USER_NAME/.ssh
